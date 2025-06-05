@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-datefields-item
+      author: 4exan
+      changes:
+        - addColumn:
+            tableName: item
+            columns:
+              - column:
+                  name: date_created
+                  type: timestamp
+              - column:
+                  name: date_edited
+                  type: timestamp

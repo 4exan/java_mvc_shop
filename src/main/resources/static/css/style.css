@@ -1,0 +1,48 @@
+@import url("https://cdn.jsdelivr.net/npm/@catppuccin/palette/css/catppuccin.css");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: var(--ctp-latte-base);
+  color: var(--ctp-latte-text);
+}
+
+body > a {
+  color: var(--ctp-latte-green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#item-table {
+  background-color: var(--ctp-latte-mantle);
+  border: 1px solid var(--ctp-latte-overlay1);
+  border-radius: 15px;
+  padding: 5px;
+}
+
+#item-table > thead > tr > th {
+  border-right: 2px solid var(--ctp-latte-overlay2);
+  border-bottom: 2px solid var(--ctp-latte-overlay2);
+  border-radius: 0px 0px 10px 0px;
+}
+
+#item-table > tbody > tr > td {
+  border-right: 1px solid var(--ctp-latte-overlay1);
+  text-align: center;
+  padding: 5px;
+}
+
+#item-table a {
+  color: var(--ctp-latte-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transform: translate();
+  transition: all 0.3s;
+}
+
+#item-table a:hover {
+  text-decoration: dashed;
+}

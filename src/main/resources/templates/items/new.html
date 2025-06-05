@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Item</title>
+  </head>
+  <body>
+    <h1>Add New Item</h1>
+    <form th:method="POST" th:action="@{/items}" th:object="${item}">
+      <input type="text" th:field="*{article}" placeholder="Article" />
+      <input type="text" th:field="*{category}" placeholder="Category" />
+      <input type="text" th:field="*{type}" placeholder="Type" />
+      <input type="text" th:field="*{name}" placeholder="Name" />
+      <input
+        type="text"
+        th:field="*{shortDescription}"
+        placeholder="Short Description"
+      />
+      <input
+        type="text"
+        th:field="*{fullDescription}"
+        placeholder="Full Description"
+      />
+      <input type="url" th:field="*{imgUrl}" placeholder="Image URL" />
+      <input
+        type="number"
+        th:field="*{regularPrice}"
+        placeholder="Regular Price"
+      />
+      <input type="number" th:field="*{salePrice}" placeholder="Sale Price" />
+      <input type="number" th:field="*{quantity}" placeholder="Quantity" />
+      <label>
+        <input type="checkbox" th:field="*{available}" />
+        Is Available?
+      </label>
+      <label>
+        <input type="checkbox" th:field="*{sale}" />
+        On Sale?
+      </label>
+      <label> <input type="checkbox" th:field="*{test}" />Test? </label>
+      <input type="submit" value="Create" />
+    </form>
+  </body>
+</html>
