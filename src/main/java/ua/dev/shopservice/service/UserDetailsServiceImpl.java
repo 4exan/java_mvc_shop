@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import ua.dev.shopservice.repository.UserRepository;
 
 @Service
-public class UserDetailsService implements UserDetailsService{
+public class UserDetailsServiceImpl implements UserDetailsService{
     
     private final UserRepository userRepository;
 
     @Autowired
-    public UserDetailsService(UserRepository userRepository){
+    public UserDetailsServiceImpl(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 
