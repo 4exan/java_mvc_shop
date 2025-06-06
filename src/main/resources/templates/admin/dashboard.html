@@ -3,45 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
-    <title>Items</title>
+    <link rel="stylesheet" th:href="@{../css/style.css}" />
+    <title>Admin Dashboard</title>
   </head>
   <body>
-    <h1>Item List</h1>
-    <a th:href="@{/items/new}">Add new</a>
-    <table id="item-table">
-      <thead>
-        <tr>
-          <th>Article</th>
-          <th>Category</th>
-          <th>Type</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Sale Price</th>
-          <th>Quantity</th>
-          <th>Is Available</th>
-          <th>On Sale</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="item : ${items}">
-          <td th:text="${item.getArticle()}"></td>
-          <td th:text="${item.getCategory()}"></td>
-          <td th:text="${item.getType()}"></td>
-          <td th:text="${item.getName()}"></td>
-          <td th:text="${item.getRegularPrice()}"></td>
-          <td th:text="${item.getSalePrice()}"></td>
-          <td th:text="${item.getQuantity()}"></td>
-          <td th:text="${item.isAvailable()}"></td>
-          <td th:text="${item.isOnSale()}"></td>
-          <td>
-            <a th:href="@{/items/{article}{article=${item.getArticle()}}}"
-              >View</a
-            >
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="root">
+      <div id="left-div">
+        <h1>Item List</h1>
+        <a th:href="@{/items/new}">Add new</a>
+        <table id="item-table">
+          <thead>
+            <tr>
+              <th>Article</th>
+              <th>Category</th>
+              <th>Type</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Sale Price</th>
+              <th>Quantity</th>
+              <th>Is Available</th>
+              <th>On Sale</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="item : ${items}">
+              <td th:text="${item.getArticle()}"></td>
+              <td th:text="${item.getCategory()}"></td>
+              <td th:text="${item.getType()}"></td>
+              <td th:text="${item.getName()}"></td>
+              <td th:text="${item.getRegularPrice()}"></td>
+              <td th:text="${item.getSalePrice()}"></td>
+              <td th:text="${item.getQuantity()}"></td>
+              <td th:text="${item.isAvailable()}"></td>
+              <td th:text="${item.isOnSale()}"></td>
+              <td>
+                <a th:href="@{/items/{article}{article=${item.getArticle()}}}"
+                  >View</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="right-div"></div>
+    </div>
   </body>
 </html>

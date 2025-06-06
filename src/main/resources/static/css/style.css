@@ -16,6 +16,14 @@ body > a {
   font-weight: 600;
 }
 
+#left-div {
+  background-color: red;
+}
+
+#right-div {
+  background-color: blue;
+}
+
 #item-table {
   background-color: var(--ctp-latte-mantle);
   border: 1px solid var(--ctp-latte-overlay1);
