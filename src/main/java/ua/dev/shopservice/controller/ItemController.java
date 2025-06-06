@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ua.dev.shopservice.dto.CreateItemRequest;
 import ua.dev.shopservice.service.ItemService;
 
+//TODO create 'config'
+//TODO create authorization
+//TODO refactor template folder (admin/user)
+//TODO create 'User'/'Admin' models
+
 @Controller
 @RequestMapping("items")
 public class ItemController {
