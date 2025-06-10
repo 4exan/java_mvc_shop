@@ -17,32 +17,32 @@ import ua.dev.shopservice.service.ItemService;
 //TODO create 'User'/'Admin' models
 
 @Controller
-@RequestMapping("items")
+@RequestMapping("/admin/items")
 public class ItemController {
-    
-    private final ItemService itemService;
 
-    @Autowired
-    public ItemController(ItemService itemService){
-        this.itemService = itemService;
-    }
+  private final ItemService itemService;
 
-    @GetMapping
-    public String getAllItems(Model model){
-        model.addAttribute("items", itemService.getAllItems());
-        return "items/items";
-    }
+  @Autowired
+  public ItemController(ItemService itemService) {
+    this.itemService = itemService;
+  }
 
-    @GetMapping("/new")
-    public String createItem(Model model){
-        model.addAttribute("item", new CreateItemRequest());
-        return "items/new";
-    }
+  // @GetMapping
+  // public String getAllItems(Model model) {
+  // model.addAttribute("items", itemService.getAllItems());
+  // return "items/items";
+  // }
 
-    @PostMapping
-    public String saveItem(@ModelAttribute CreateItemRequest req){
-        itemService.createNewItem(req);
-        return "redirect:/items";
-    }
+  @GetMapping("/new")
+  public String createItem(Model model) {
+    model.addAttribute("item", new CreateItemRequest());
+    return "admin/new-item";
+  }
+
+  @PostMapping
+  public String saveItem(@ModelAttribute CreateItemRequest req) {
+    itemService.createNewItem(req);
+    return "redirect:/admin";
+  }
 
 }
