@@ -10,7 +10,7 @@
     <div class="container">
       <div class="box">
         <h1>Item List</h1>
-        <a class="btn" th:href="@{/items/new}">Add new</a>
+        <a class="btn" th:href="@{/admin/items/new}">Add new</a>
         <table class="table">
           <thead>
             <tr>
@@ -38,7 +38,7 @@
               <td th:text="${item.isAvailable()}"></td>
               <td th:text="${item.isOnSale()}"></td>
               <td>
-                <a th:href="@{/items/{article}{article=${item.getArticle()}}}"
+                <a th:href="@{/admin/items/{article}(article=${item.getArticle()})}"
                   >View</a
                 >
               </td>
@@ -48,7 +48,7 @@
       </div>
       <div class="box">
         <h1>User List</h1>
-          <a class="btn" th:href="@{/users/new}">Add new</a>
+          <a class="btn" th:href="@{/admin/users/new}">Add new</a>
           <table class="table">
             <thead>
               <tr>
@@ -68,7 +68,7 @@
                 <td th:text="${user.getPhone()}"></td>
                 <td th:text="${user.getRole()}"></td>
                 <td>
-                  <a th:href="@{/items/{article}(article=${item.getArticle())}}">View</a>
+                  <a th:href="@{/admin/users/{id}(id=${user.getId()})}">View</a>
                 </td>
               </tr>
             </tbody>
