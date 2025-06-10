@@ -14,50 +14,53 @@ import lombok.Setter;
 
 @Table(name = "users")
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class User {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
 
-    @Column(name = "first_name", length = 50)
-    private String firstName;
-    @Column(name = "last_name", length = 50)
-    private String lastName;
-    @Column(length = 75, nullable = false)
-    private String email;
-    @Column(nullable = false)
-    private String password;
-    private String role;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
 
-    @Override
-    public boolean equals(Object o){
-        if(o == null || o.getClass() != getClass()){
-            return false;
-        } else {
-            User user = (User)o;
-            return user.getEmail() == this.getEmail();
-        }
+  @Column(name = "first_name", length = 50)
+  private String firstName;
+  @Column(name = "last_name", length = 50)
+  private String lastName;
+  @Column(length = 75, nullable = false)
+  private String email;
+  @Column(length = 13)
+  private String phone;
+  @Column(nullable = false)
+  private String password;
+  private String role;
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || o.getClass() != getClass()) {
+      return false;
+    } else {
+      User user = (User) o;
+      return user.getEmail() == this.getEmail();
     }
+  }
 
-    @Override
-    public int hashCode(){
-        return email.hashCode();
-    }
+  @Override
+  public int hashCode() {
+    return email.hashCode();
+  }
 
-    @Override
-    public String toString(){
-        return "[ " + this.id
+  @Override
+  public String toString() {
+    return "[ " + this.id
         + ", " + this.firstName
         + ", " + this.lastName
         + ", " + this.email
         + ", " + this.password
         + ", " + this.role
         + " ]";
-    }
+  }
 
 }
