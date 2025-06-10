@@ -16,11 +16,22 @@ body > a {
   font-weight: 600;
 }
 
-#left-div {
+.container{
+  display: flex;
+  width: 100%;
+}
+
+.box {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.box:nth-child(1){
   background-color: red;
 }
 
-#right-div {
+.box:nth-child(2){
   background-color: blue;
 }
 

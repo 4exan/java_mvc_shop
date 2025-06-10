@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{../css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
     <title>Admin Dashboard</title>
   </head>
   <body>
-    <div id="root">
-      <div id="left-div">
+    <div class="container">
+      <div class="box">
         <h1>Item List</h1>
         <a th:href="@{/items/new}">Add new</a>
         <table id="item-table">
@@ -46,7 +46,34 @@
           </tbody>
         </table>
       </div>
-      <div id="right-div"></div>
+      <div class="box">
+        <h1>User List</h1>
+          <a th:href="@{/users/new}">Add new</a>
+          <table id="user-table">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="user : ${users}">
+                <td th:text="${user.getFirstName()}"></td>
+              <td th:text="${user.getLastName()}"></td>
+                <td th:text="${user.getEmail()}"></td>
+                <td th:text="${user.getPhone()}"></td>
+                <td th:text="${user.getRole()}"></td>
+                <td>
+                  <a th:href="@{/items/{article}(article=${item.getArticle())}}">View</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
     </div>
   </body>
 </html>
