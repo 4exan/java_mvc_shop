@@ -10,8 +10,8 @@
     <div class="container">
       <div class="box">
         <h1>Item List</h1>
-        <a th:href="@{/items/new}">Add new</a>
-        <table id="item-table">
+        <a class="btn" th:href="@{/items/new}">Add new</a>
+        <table class="table">
           <thead>
             <tr>
               <th>Article</th>
@@ -48,8 +48,8 @@
       </div>
       <div class="box">
         <h1>User List</h1>
-          <a th:href="@{/users/new}">Add new</a>
-          <table id="user-table">
+          <a class="btn" th:href="@{/users/new}">Add new</a>
+          <table class="table">
             <thead>
               <tr>
                 <th>First Name</th>
@@ -63,7 +63,7 @@
             <tbody>
               <tr th:each="user : ${users}">
                 <td th:text="${user.getFirstName()}"></td>
-              <td th:text="${user.getLastName()}"></td>
+                <td th:text="${user.getLastName()}"></td>
                 <td th:text="${user.getEmail()}"></td>
                 <td th:text="${user.getPhone()}"></td>
                 <td th:text="${user.getRole()}"></td>

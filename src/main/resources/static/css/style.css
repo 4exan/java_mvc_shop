@@ -28,33 +28,31 @@ body > a {
 }
 
 .box:nth-child(1){
-  background-color: red;
 }
 
 .box:nth-child(2){
-  background-color: blue;
 }
 
-#item-table {
+.table {
   background-color: var(--ctp-latte-mantle);
   border: 1px solid var(--ctp-latte-overlay1);
   border-radius: 15px;
   padding: 5px;
 }
 
-#item-table > thead > tr > th {
+.table > thead > tr > th {
   border-right: 2px solid var(--ctp-latte-overlay2);
   border-bottom: 2px solid var(--ctp-latte-overlay2);
   border-radius: 0px 0px 10px 0px;
 }
 
-#item-table > tbody > tr > td {
+.table > tbody > tr > td {
   border-right: 1px solid var(--ctp-latte-overlay1);
   text-align: center;
   padding: 5px;
 }
 
-#item-table a {
+.table a {
   color: var(--ctp-latte-blue);
   text-decoration: none;
   font-weight: 600;
@@ -62,6 +60,6 @@ body > a {
   transition: all 0.3s;
 }
 
-#item-table a:hover {
+.table a:hover {
   text-decoration: dashed;
 }
