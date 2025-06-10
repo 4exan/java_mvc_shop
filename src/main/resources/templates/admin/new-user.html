@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add New User</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Add New User</h1>
+      <form th:method="POST" th:action="@{/users}" th:object="${user}">
+        <input type="text" th:field="*{firstName}" placeholder="First Name" />
+        <input type="text" th:field="*{secondName}" placeholder="Second Name" />
+        <input type="email" th:field="*{email}" placeholder="Email" />
+        <input type="text" th:field="*{phone}" placeholder="Phone" />
+      <input type="password" th:field="*{password}" placeholder="Password">
+      <select name="role" th:field="*{role}">
+        <option th:value="'USER'" selected>User</option>
+        <option th:value="'ADMIN'">Admin</option>
+      </select>
+        <input type="submit" value="Create" />
+      </form>
+  </body>
+</html>
