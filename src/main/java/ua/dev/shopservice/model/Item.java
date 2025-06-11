@@ -17,7 +17,8 @@ import lombok.Setter;
 
 @Table(name = "items")
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -66,6 +67,7 @@ public class Item {
 
   @Column(name = "is_available")
   private boolean isAvailable;
+  // TODO fix 'edit' endpoint always false checkpoints
 
   @Override
   public boolean equals(Object o) {

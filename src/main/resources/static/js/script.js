@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.dataset.shortdescription;
       document.getElementById("fullDescription").value =
         button.dataset.fulldescription;
+      document.getElementById("imgUrl").value = button.dataset.imgurl;
       document.getElementById("regularPrice").value = button.dataset.regularprice;
       document.getElementById("salePrice").value = button.dataset.saleprice;
       document.getElementById("quantity").value = button.dataset.quantity;

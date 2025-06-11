@@ -12,16 +12,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateItemRequest {
-    private String article;
-    private String category;
-    private String type;
-    private String name;
-    private String shortDescription;
-    private String fullDescription;
-    private String imgUrl;
-    private BigDecimal regularPrice;
-    private BigDecimal salePrice;
-    private int quantity;
-    private boolean available;
-    private boolean sale;
+  private long id;
+  private String article;
+  private String category;
+  private String type;
+  private String name;
+  private String shortDescription;
+  private String fullDescription;
+  private String imgUrl;
+  private BigDecimal regularPrice;
+  private BigDecimal salePrice;
+  private int quantity;
+  private boolean available;
+  private boolean sale;
 }
