@@ -41,14 +41,13 @@ public class UserService {
     saveUser(user);
   }
 
-  public void updateUser(long id, CreateUserRequest req) {
-    User user = userRepository.findById(id)
-        .orElseThrow(() -> new UserNotFoundException("User with ID: " + id + " not found"));
+  public void updateUser(CreateUserRequest req) {
+    User user = userRepository.findById(req.getId())
+        .orElseThrow(() -> new UserNotFoundException("User with ID: " + req.getId() + " not found"));
     user.setFirstName(req.getFirstName());
     user.setLastName(req.getLastName());
     user.setEmail(req.getEmail());
     user.setPhone(req.getPhone());
-    user.setPassword(passwordEncoder.encode(req.getPassword()));
     user.setRole(req.getRole());
     saveUser(user);
   }

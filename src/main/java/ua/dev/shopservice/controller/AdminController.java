@@ -69,9 +69,9 @@ public class AdminController {
     return "redirect:/admin";
   }
 
-  @PatchMapping("/users/edit/{id}")
-  public String updateUser(@PathVariable("id") long id, @ModelAttribute CreateUserRequest req) {
-    userService.updateUser(id, req);
+  @PostMapping("/users/edit")
+  public String updateUser(@ModelAttribute CreateUserRequest req) {
+    userService.updateUser(req);
     return "redirect:/admin";
   }
 
