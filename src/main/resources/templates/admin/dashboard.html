@@ -58,7 +58,6 @@
         </table>
         <div id="editItemModal" class="modal">
           <div class="modal-content">
-            <span class="closeItemModalBtn">&times;</span>
             <form method="post" th:action="@{/admin/items/edit}">
               <input type="number" name="id" id="itemId" readonly="true"><br>
               <input type="text" name="article" id="article" placeholder="Article"><br>
@@ -75,7 +74,6 @@
                 <input type="checkbox" name="available" id="available">Is Available?
               </label><br>
               <label>
-
                 <input type="checkbox" name="sale" id="sale">Is On Sale?
               </label><br>
               <button type="submit">Save</button>
@@ -106,11 +104,34 @@
                 <td th:text="${user.getPhone()}"></td>
                 <td th:text="${user.getRole()}"></td>
                 <td>
-                  <a th:href="@{/admin/users/{id}(id=${user.getId()})}">View</a>
+                <button class="editUserBtn" th:attr="
+                data-id=${user.id},
+                data-firstname=${user.firstName},
+                data-lastname=${user.lastName},
+                data-email=${user.email},
+                data-phone=${user.phone},
+                data-role=${user.role}"></button>
                 </td>
               </tr>
             </tbody>
           </table>
+          <div id="editUserModal" class="modal">
+            <div class="modal-content">
+              <form method="post" th:action="@{/admin/users/edit}">
+                <input type="number" name="id" id="userId" readonly="true"><br>
+                <input type="text" name="firstname" id="firstname" placeholder="First Name"><br>
+                <input type="text" name="lastname" id="lastname" placeholder="Last Name"><br>
+                <input type="text" name="email" id="email" placeholder="Email"><br>
+                <input type="text" name="phone" id="phone" placeholder="Phone"><br>
+                <select name="role">
+                <option value="USER" selected>User</option>
+                <option value="ADMIN">ADMIN</option>
+              </select>
+                <button type="submit">Save</button>
+                <button type="button" class="closeUserModalBtn">Cancel</button>
+              </form>
+            </div>
+          </div>
       </div>
     </div>
     <script th:src="@{/js/script.js}"></script>
