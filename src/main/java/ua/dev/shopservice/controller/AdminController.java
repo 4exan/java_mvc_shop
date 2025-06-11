@@ -12,6 +12,7 @@ import ua.dev.shopservice.service.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequestMapping("/admin")
@@ -39,6 +40,7 @@ public class AdminController {
     return "admin/new-item";
   }
 
+  @PostMapping("/items/new")
   public String saveItem(@ModelAttribute CreateItemRequest req) {
     itemService.createNewItem(req);
     return "redirect:/admin";
@@ -50,6 +52,7 @@ public class AdminController {
     return "admin/new-user";
   }
 
+  @PostMapping("/users/new")
   public String saveUser(@ModelAttribute CreateUserRequest req) {
     userService.createNewUser(req);
     return "redirect:/admin";
