@@ -53,6 +53,7 @@ public class AdminController {
   @PostMapping("/items/edit")
   public String updateItem(@ModelAttribute CreateItemRequest req) {
     itemService.updateItem(req);
+    log.info("Received item -> " + req.toString());
     return "redirect:/admin";
   }
 

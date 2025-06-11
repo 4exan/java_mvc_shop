@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("regularPrice").value = button.dataset.regularprice;
       document.getElementById("salePrice").value = button.dataset.saleprice;
       document.getElementById("quantity").value = button.dataset.quantity;
-      document.getElementById("isAvailable").checked = button.dataset.isavailable === "true";
-      document.getElementById("isOnSale").checked = button.dataset.isonsale === "true";
+      document.getElementById("available").checked = button.dataset.available === "true";
+      document.getElementById("sale").checked = button.dataset.sale === "true";
 
       editItemModal.style.display = "block";
     });

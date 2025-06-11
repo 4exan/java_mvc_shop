@@ -50,8 +50,8 @@
                 data-regularPrice=${item.regularPrice},
                 data-salePrice=${item.salePrice},
                 data-quantity=${item.quantity},
-                data-isAvailable=${item.isAvailable},
-                data-isOnSale=${item.isOnSale}"></button>
+                data-available=${item.isAvailable},
+                data-sale=${item.isOnSale}"></button>
               </td>
             </tr>
           </tbody>
@@ -71,8 +71,13 @@
               <input type="number" name="regularPrice" id="regularPrice" placeholder="Regular Price"><br>
               <input type="number" name="salePrice" id="salePrice" placeholder="Sale Price"><br>
               <input type="number" name="quantity" id="quantity" placeholder="Quantity"><br>
-              <label><input type="checkbox" name="isAvailable" id="isAvailable">Is Available?</label><br>
-              <label><input type="checkbox" name="isOnSale" id="isOnSale">Is On Sale?</label><br>
+              <label>
+                <input type="checkbox" name="available" id="available">Is Available?
+              </label><br>
+              <label>
+
+                <input type="checkbox" name="sale" id="sale">Is On Sale?
+              </label><br>
               <button type="submit">Save</button>
               <button type="button" class="closeItemModalBtn">Cancel</button>
             </form>
