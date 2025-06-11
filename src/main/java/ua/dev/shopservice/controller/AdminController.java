@@ -71,7 +71,8 @@ public class AdminController {
 
   @PostMapping("/users/edit")
   public String updateUser(@ModelAttribute CreateUserRequest req) {
-    userService.updateUser(req);
+    // userService.updateUser(req);
+    log.info("Received user -> " + req.toString());
     return "redirect:/admin";
   }
 
