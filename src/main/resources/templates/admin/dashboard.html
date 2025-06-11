@@ -38,13 +38,43 @@
               <td th:text="${item.isAvailable()}"></td>
               <td th:text="${item.isOnSale()}"></td>
               <td>
-                <a th:href="@{/admin/items/{article}(article=${item.getArticle()})}"
-                  >View</a
-                >
+                <button class="editItemBtn" th:attr="data-id=${item.id},
+                data-article=${item.article},
+                data-category=${item.category},
+                data-type=${item.type},
+                data-name=${item.name},
+                data-shortDescription=${item.shortDescription},
+                data-fullDescription=${item.fullDescription},
+                data-regularPrice=${item.regularPrice},
+                data-salePrice=${item.salePrice},
+                data-quantity=${item.quantity},
+                data-isAvailable=${item.isAvailable},
+                data-isOnSale=${item.isOnSale}"></button>
               </td>
             </tr>
           </tbody>
         </table>
+        <div id="editItemModal" class="modal">
+          <div class="modal-content">
+            <span class="closeItemModalBtn">&times;</span>
+            <form method="post" th:action="@{/admin/items/edit}">
+              <input type="number" name="id" id="itemId" disabled><br>
+              <br type="text" name="article" id="article" placeholder="Article"><br>
+              <input type="text" name="category" id="category" placeholder="Category"><br>
+              <input type="text" name="type" id="type" placeholder="Type"><br>
+              <input type="text" name="name" id="name" placeholder="Name"><br>
+              <textarea name="shortDescription" id="shortDescription" placeholder="Short Description"></textarea><br>
+              <textarea name="fullDescription" id="fullDescription" placeholder="Full Description"></textarea><br>
+              <input type="number" name="regularPrice" id="regularPrice" placeholder="Regular Price"><br>
+              <input type="number" name="salePrice" id="salePrice" placeholder="Sale Price"><br>
+              <input type="number" name="quantity" id="quantity" placeholder="Quantity"><br>
+              <label><input type="checkbox" name="isAvailable" id="isAvailable">Is Available?</label><br>
+              <label><input type="checkbox" name="isOnSale" id="isOnSale">Is On Sale?</label><br>
+              <button type="submit">Save</button>
+              <button type="button" class="closeItemModalBtn">Cancel</button>
+            </form>
+          </div>
+        </div>
       </div>
       <div class="box">
         <h1>User List</h1>
@@ -75,5 +105,6 @@
           </table>
       </div>
     </div>
+    <script th:src="@{/js/script.js}"></script>
   </body>
 </html>
