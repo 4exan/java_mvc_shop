@@ -51,12 +51,12 @@
                 data-salePrice=${item.salePrice},
                 data-quantity=${item.quantity},
                 data-available=${item.isAvailable},
-                data-sale=${item.isOnSale}"></button>
+                data-sale=${item.isOnSale}">Edit</button>
               </td>
             </tr>
           </tbody>
         </table>
-        <div id="editItemModal" class="modal">
+        <div class="modal" id="editItemModal">
           <div class="modal-content">
             <form method="post" th:action="@{/admin/items/edit}">
               <input type="number" name="id" id="itemId" readonly="true"><br>
@@ -110,12 +110,12 @@
                 data-lastname=${user.lastName},
                 data-email=${user.email},
                 data-phone=${user.phone},
-                data-role=${user.role}"></button>
+                data-role=${user.role}">Edit</button>
                 </td>
               </tr>
             </tbody>
           </table>
-          <div id="editUserModal" class="modal">
+          <div class="modal" id="editUserModal">
             <div class="modal-content">
               <form method="post" th:action="@{/admin/users/edit}">
                 <input type="number" name="id" id="userId" readonly="true"><br>
@@ -123,7 +123,7 @@
                 <input type="text" name="lastname" id="lastname" placeholder="Last Name"><br>
                 <input type="text" name="email" id="email" placeholder="Email"><br>
                 <input type="text" name="phone" id="phone" placeholder="Phone"><br>
-                <select name="role">
+                <select name="role" id="role">
                 <option value="USER" selected>User</option>
                 <option value="ADMIN">ADMIN</option>
               </select>

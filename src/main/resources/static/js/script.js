@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const editUserModal = document.getElementById("editUserModal");
 
   document.querySelectorAll(".editItemBtn").forEach((button) => {
-
-    button.textContent = 'Edit';
     button.addEventListener("click", () => {
       document.getElementById("itemId").value = button.dataset.id;
       document.getElementById("article").value = button.dataset.article;
@@ -45,20 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".closeUserModalBtn").forEach(el => {
     el.addEventListener('click', () => {
-      editItemModal.style.display = "none";
+      editUserModal.style.display = "none";
     })
   })
 
   window.onclick = function (event) {
     if (event.target === editItemModal) {
       editItemModal.style.display = "none";
-    }
-  };
-
-  window.onclick = function (event){
-    if(event.target === editUserModal){
+    }else if(event.target === editUserModal){
       editUserModal.style.display = "none";
     }
-  }
+  };
 })
 
