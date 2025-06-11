@@ -5,29 +5,54 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ua.dev.shopservice.repository.ItemRepository;
-import ua.dev.shopservice.repository.UserRepository;
-import org.springframework.web.bind.annotation.GetMapping;
+import ua.dev.shopservice.dto.CreateItemRequest;
+import ua.dev.shopservice.dto.CreateUserRequest;
+import ua.dev.shopservice.service.ItemService;
+import ua.dev.shopservice.service.UserService;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
-    private final UserRepository userRepository;
-    private final ItemRepository itemRepository;
+  private final UserService userService;
+  private final ItemService itemService;
 
-    @Autowired
-    public AdminController(UserRepository userRepository, ItemRepository itemRepository){
-        this.userRepository = userRepository;
-        this.itemRepository = itemRepository;
-    }
-    
-    @GetMapping
-    public String adminDashboard(Model model){
-        model.addAttribute("items", itemRepository.findAll());
-        model.addAttribute("users", userRepository.findAll());
-        return "admin/dashboard";
-    }
-    
+  @Autowired
+  public AdminController(UserService userService, ItemService itemService) {
+    this.userService = userService;
+    this.itemService = itemService;
+  }
+
+  @GetMapping
+  public String adminDashboard(Model model) {
+    model.addAttribute("items", itemService.getAllItems());
+    model.addAttribute("users", userService.getAllUsers());
+    return "admin/dashboard";
+  }
+
+  @GetMapping("/items/new")
+  public String createItem(Model model) {
+    model.addAttribute("item", new CreateItemRequest());
+    return "admin/new-item";
+  }
+
+  public String saveItem(@ModelAttribute CreateItemRequest req) {
+    itemService.createNewItem(req);
+    return "redirect:/admin";
+  }
+
+  @GetMapping("/users/new")
+  public String createUser(Model model) {
+    model.addAttribute("user", new CreateUserRequest());
+    return "admin/new-user";
+  }
+
+  public String saveUser(@ModelAttribute CreateUserRequest req) {
+    userService.createNewUser(req);
+    return "redirect:/admin";
+  }
+
 }
