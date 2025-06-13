@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Add New User</h1>
-      <form th:method="POST" th:action="@{/admin/users}" th:object="${user}">
+      <form th:method="POST" th:action="@{/admin/users/new}" th:object="${user}">
         <input type="text" th:field="*{firstName}" placeholder="First Name" />
         <input type="text" th:field="*{lastName}" placeholder="Last Name" />
         <input type="email" th:field="*{email}" placeholder="Email" />
