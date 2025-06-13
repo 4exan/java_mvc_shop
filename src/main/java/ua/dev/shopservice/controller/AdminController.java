@@ -47,13 +47,14 @@ public class AdminController {
   @PostMapping("/items/new")
   public String saveItem(@ModelAttribute CreateItemRequest req) {
     itemService.createNewItem(req);
+    log.info("Created item -> " + req.toString());
     return "redirect:/admin";
   }
 
   @PostMapping("/items/edit")
   public String updateItem(@ModelAttribute CreateItemRequest req) {
     itemService.updateItem(req);
-    log.info("Received item -> " + req.toString());
+    log.info("Edited item -> " + req.toString());
     return "redirect:/admin";
   }
 
@@ -66,13 +67,14 @@ public class AdminController {
   @PostMapping("/users/new")
   public String saveUser(@ModelAttribute CreateUserRequest req) {
     userService.createNewUser(req);
+    log.info("Created user -> " + req.toString());
     return "redirect:/admin";
   }
 
   @PostMapping("/users/edit")
   public String updateUser(@ModelAttribute CreateUserRequest req) {
-    // userService.updateUser(req);
-    log.info("Received user -> " + req.toString());
+    userService.updateUser(req);
+    log.info("Edited user -> " + req.toString());
     return "redirect:/admin";
   }
 
