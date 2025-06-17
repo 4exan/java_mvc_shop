@@ -1,4 +1,4 @@
-package ua.dev.shopservice.dto;
+package ua.dev.shopservice.dto.item;
 
 import java.math.BigDecimal;
 

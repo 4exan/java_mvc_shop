@@ -1,4 +1,4 @@
-package ua.dev.shopservice.dto;
+package ua.dev.shopservice.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
