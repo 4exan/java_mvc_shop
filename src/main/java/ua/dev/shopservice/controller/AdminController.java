@@ -6,14 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.log4j.Log4j2;
-import ua.dev.shopservice.dto.CreateItemRequest;
-import ua.dev.shopservice.dto.CreateUserRequest;
+import ua.dev.shopservice.dto.item.CreateItemRequest;
+import ua.dev.shopservice.dto.user.CreateUserRequest;
 import ua.dev.shopservice.service.ItemService;
 import ua.dev.shopservice.service.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -47,14 +46,18 @@ public class AdminController {
   @PostMapping("/items/new")
   public String saveItem(@ModelAttribute CreateItemRequest req) {
     itemService.createNewItem(req);
-    log.info("Created item -> " + req.toString());
     return "redirect:/admin";
   }
 
   @PostMapping("/items/edit")
   public String updateItem(@ModelAttribute CreateItemRequest req) {
     itemService.updateItem(req);
-    log.info("Edited item -> " + req.toString());
+    return "redirect:/admin";
+  }
+
+  @PostMapping("/items/delete/{id}")
+  public String deleteItem(@PathVariable long id) {
+    itemService.deleteItem(id);
     return "redirect:/admin";
   }
 
@@ -67,14 +70,18 @@ public class AdminController {
   @PostMapping("/users/new")
   public String saveUser(@ModelAttribute CreateUserRequest req) {
     userService.createNewUser(req);
-    log.info("Created user -> " + req.toString());
     return "redirect:/admin";
   }
 
   @PostMapping("/users/edit")
   public String updateUser(@ModelAttribute CreateUserRequest req) {
     userService.updateUser(req);
-    log.info("Edited user -> " + req.toString());
+    return "redirect:/admin";
+  }
+
+  @PostMapping("/users/delete/{id}")
+  public String deleteUser(@PathVariable long id){
+    userService.deleteUser(id);
     return "redirect:/admin";
   }
 
