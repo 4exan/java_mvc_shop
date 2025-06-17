@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.log4j.Log4j2;
-import ua.dev.shopservice.dto.CreateUserRequest;
+import ua.dev.shopservice.dto.user.CreateUserRequest;
 import ua.dev.shopservice.exception.UserNotFoundException;
 import ua.dev.shopservice.model.User;
 import ua.dev.shopservice.repository.UserRepository;
@@ -50,6 +50,15 @@ public class UserService {
     user.setPhone(req.getPhone());
     user.setRole(req.getRole());
     saveUser(user);
+  }
+
+  public void deleteUser(long id){
+    try{
+      userRepository.deleteById(id);
+      log.info("Deleted user with ID: " + id);
+    }catch(Exception e){
+      log.error("Error while deleting user -> " + e);
+    }
   }
 
   private void saveUser(User user) {

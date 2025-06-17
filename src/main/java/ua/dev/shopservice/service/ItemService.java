@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.log4j.Log4j2;
-import ua.dev.shopservice.dto.CreateItemRequest;
+import ua.dev.shopservice.dto.item.CreateItemRequest;
 import ua.dev.shopservice.exception.ItemNotFoundException;
 import ua.dev.shopservice.model.Item;
 import ua.dev.shopservice.repository.ItemRepository;
@@ -64,6 +64,15 @@ public class ItemService {
     item.setOnSale(req.isSale());
     item.setDateEdited(LocalDateTime.now());
     saveItem(item);
+  }
+
+  public void deleteItem(long id){
+    try{
+      itemRepository.deleteById(id);
+      log.info("Deleted item with ID: " + id);
+    }catch(Exception e){
+      log.error("Error while deleting item -> " + e);
+    }
   }
 
   private void saveItem(Item item) {
