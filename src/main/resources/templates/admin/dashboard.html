@@ -38,7 +38,9 @@
               <td th:text="${item.isAvailable()}"></td>
               <td th:text="${item.isOnSale()}"></td>
               <td>
-                <button class="editItemBtn" th:attr="
+                <button
+                  class="editItemBtn"
+                  th:attr="
                 data-id=${item.id},
                 data-article=${item.article},
                 data-category=${item.category},
@@ -51,7 +53,17 @@
                 data-salePrice=${item.salePrice},
                 data-quantity=${item.quantity},
                 data-available=${item.isAvailable},
-                data-sale=${item.isOnSale}">Edit</button>
+                data-sale=${item.isOnSale}"
+                >
+                  Edit
+                </button>
+                <form
+                  th:action="@{/admin/items/delete/{id}(id=${item.id})}"
+                  onsubmit="return confirm('You really want to delete this item?')"
+                  method="POST"
+                >
+                  <input type="submit" value="Delete" />
+                </form>
               </td>
             </tr>
           </tbody>
@@ -59,23 +71,79 @@
         <div class="modal" id="editItemModal">
           <div class="modal-content">
             <form method="post" th:action="@{/admin/items/edit}">
-              <input type="number" name="id" id="itemId" readonly="true"><br>
-              <input type="text" name="article" id="article" placeholder="Article"><br>
-              <input type="text" name="category" id="category" placeholder="Category"><br>
-              <input type="text" name="type" id="type" placeholder="Type"><br>
-              <input type="text" name="name" id="name" placeholder="Name"><br>
-              <textarea name="shortDescription" id="shortDescription" placeholder="Short Description"></textarea><br>
-              <textarea name="fullDescription" id="fullDescription" placeholder="Full Description"></textarea><br>
-              <input type="url" name="imgUrl" id="imgUrl" placeholder="Image URL"><br>
-              <input type="number" name="regularPrice" id="regularPrice" placeholder="Regular Price"><br>
-              <input type="number" name="salePrice" id="salePrice" placeholder="Sale Price"><br>
-              <input type="number" name="quantity" id="quantity" placeholder="Quantity"><br>
+              <input
+                type="number"
+                name="id"
+                id="itemId"
+                readonly="true"
+              /><br />
+              <input
+                type="text"
+                name="article"
+                id="article"
+                placeholder="Article"
+              /><br />
+              <input
+                type="text"
+                name="category"
+                id="category"
+                placeholder="Category"
+              /><br />
+              <input
+                type="text"
+                name="type"
+                id="type"
+                placeholder="Type"
+              /><br />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Name"
+              /><br />
+              <textarea
+                name="shortDescription"
+                id="shortDescription"
+                placeholder="Short Description"
+              ></textarea
+              ><br />
+              <textarea
+                name="fullDescription"
+                id="fullDescription"
+                placeholder="Full Description"
+              ></textarea
+              ><br />
+              <input
+                type="url"
+                name="imgUrl"
+                id="imgUrl"
+                placeholder="Image URL"
+              /><br />
+              <input
+                type="number"
+                name="regularPrice"
+                id="regularPrice"
+                placeholder="Regular Price"
+              /><br />
+              <input
+                type="number"
+                name="salePrice"
+                id="salePrice"
+                placeholder="Sale Price"
+              /><br />
+              <input
+                type="number"
+                name="quantity"
+                id="quantity"
+                placeholder="Quantity"
+              /><br />
               <label>
-                <input type="checkbox" name="available" id="available">Is Available?
-              </label><br>
+                <input type="checkbox" name="available" id="available" />Is
+                Available? </label
+              ><br />
               <label>
-                <input type="checkbox" name="sale" id="sale">Is On Sale?
-              </label><br>
+                <input type="checkbox" name="sale" id="sale" />Is On Sale? </label
+              ><br />
               <button type="submit">Save</button>
               <button type="button" class="closeItemModalBtn">Cancel</button>
             </form>
@@ -84,54 +152,91 @@
       </div>
       <div class="box">
         <h1>User List</h1>
-          <a class="btn" th:href="@{/admin/users/new}">Add new</a>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Role</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr th:each="user : ${users}">
-                <td th:text="${user.getFirstName()}"></td>
-                <td th:text="${user.getLastName()}"></td>
-                <td th:text="${user.getEmail()}"></td>
-                <td th:text="${user.getPhone()}"></td>
-                <td th:text="${user.getRole()}"></td>
-                <td>
-                <button class="editUserBtn" th:attr="
+        <a class="btn" th:href="@{/admin/users/new}">Add new</a>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Role</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="user : ${users}">
+              <td th:text="${user.getFirstName()}"></td>
+              <td th:text="${user.getLastName()}"></td>
+              <td th:text="${user.getEmail()}"></td>
+              <td th:text="${user.getPhone()}"></td>
+              <td th:text="${user.getRole()}"></td>
+              <td>
+                <button
+                  class="editUserBtn"
+                  th:attr="
                 data-id=${user.id},
                 data-firstname=${user.firstName},
                 data-lastname=${user.lastName},
                 data-email=${user.email},
                 data-phone=${user.phone},
-                data-role=${user.role}">Edit</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="modal" id="editUserModal">
-            <div class="modal-content">
-              <form method="post" th:action="@{/admin/users/edit}">
-                <input type="number" name="id" id="userId" readonly="true"><br>
-                <input type="text" name="firstName" id="firstName" placeholder="First Name"><br>
-                <input type="text" name="lastName" id="lastName" placeholder="Last Name"><br>
-                <input type="text" name="email" id="email" placeholder="Email"><br>
-                <input type="text" name="phone" id="phone" placeholder="Phone"><br>
-                <select name="role" id="role">
+                data-role=${user.role}"
+                >
+                  Edit
+                </button>
+                <form
+                  th:action="@{/admin/users/delete/{id}(id=${user.id})}"
+                  onsubmit="return confirm('You really want to delete this user?')"
+                  method="POST"
+                >
+                  <input type="submit" value="Delete" />
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="modal" id="editUserModal">
+          <div class="modal-content">
+            <form method="post" th:action="@{/admin/users/edit}">
+              <input
+                type="number"
+                name="id"
+                id="userId"
+                readonly="true"
+              /><br />
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="First Name"
+              /><br />
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Last Name"
+              /><br />
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Email"
+              /><br />
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                placeholder="Phone"
+              /><br />
+              <select name="role" id="role">
                 <option value="USER" selected>User</option>
                 <option value="ADMIN">ADMIN</option>
               </select>
-                <button type="submit">Save</button>
-                <button type="button" class="closeUserModalBtn">Cancel</button>
-              </form>
-            </div>
+              <button type="submit">Save</button>
+              <button type="button" class="closeUserModalBtn">Cancel</button>
+            </form>
           </div>
+        </div>
       </div>
     </div>
     <script th:src="@{/js/script.js}"></script>

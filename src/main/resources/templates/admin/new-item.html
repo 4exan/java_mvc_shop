@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Add New Item</h1>
-    <form th:method="POST" th:action="@{/items}" th:object="${item}">
+    <form th:method="POST" th:action="@{/admin/items/new}" th:object="${item}">
       <input type="text" th:field="*{article}" placeholder="Article" />
       <input type="text" th:field="*{category}" placeholder="Category" />
       <input type="text" th:field="*{type}" placeholder="Type" />

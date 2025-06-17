@@ -14,45 +14,46 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("fullDescription").value =
         button.dataset.fulldescription;
       document.getElementById("imgUrl").value = button.dataset.imgurl;
-      document.getElementById("regularPrice").value = button.dataset.regularprice;
+      document.getElementById("regularPrice").value =
+        button.dataset.regularprice;
       document.getElementById("salePrice").value = button.dataset.saleprice;
       document.getElementById("quantity").value = button.dataset.quantity;
-      document.getElementById("available").checked = button.dataset.available === "true";
+      document.getElementById("available").checked =
+        button.dataset.available === "true";
       document.getElementById("sale").checked = button.dataset.sale === "true";
       editItemModal.style.display = "block";
     });
   });
 
   document.querySelectorAll(".editUserBtn").forEach((button) => {
-    button.addEventListener('click', () => {
-      document.getElementById('userId').value = button.dataset.id;
-      document.getElementById('firstName').value = button.dataset.firstname;
-      document.getElementById('lastName').value = button.dataset.lastname;
-      document.getElementById('email').value = button.dataset.email;
-      document.getElementById('phone').value = button.dataset.phone;
-      document.getElementById('role').value = button.dataset.role;
+    button.addEventListener("click", () => {
+      document.getElementById("userId").value = button.dataset.id;
+      document.getElementById("firstName").value = button.dataset.firstname;
+      document.getElementById("lastName").value = button.dataset.lastname;
+      document.getElementById("email").value = button.dataset.email;
+      document.getElementById("phone").value = button.dataset.phone;
+      document.getElementById("role").value = button.dataset.role;
       editUserModal.style.display = "block";
-    })
-  })
+    });
+  });
 
-  document.querySelectorAll(".closeItemModalBtn").forEach(el => {
-    el.addEventListener('click', () => {
+  document.querySelectorAll(".closeItemModalBtn").forEach((el) => {
+    el.addEventListener("click", () => {
       editItemModal.style.display = "none";
-    })
-  })
+    });
+  });
 
-  document.querySelectorAll(".closeUserModalBtn").forEach(el => {
-    el.addEventListener('click', () => {
+  document.querySelectorAll(".closeUserModalBtn").forEach((el) => {
+    el.addEventListener("click", () => {
       editUserModal.style.display = "none";
-    })
-  })
+    });
+  });
 
   window.onclick = function (event) {
     if (event.target === editItemModal) {
       editItemModal.style.display = "none";
-    }else if(event.target === editUserModal){
+    } else if (event.target === editUserModal) {
       editUserModal.style.display = "none";
     }
   };
-})
-
+});
