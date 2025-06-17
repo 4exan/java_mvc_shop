@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-user-table
+      id: create-users-table
       author: 4exan
       changes:
         - createTable:
-            tableName: user
+            tableName: users
             columns:
               - column:
                   name: id
@@ -15,13 +15,13 @@ databaseChangeLog:
                     primaryKey: true
               - column:
                   name: first_name
-                  type: varchar(50)
+                  type: varchar
               - column:
                   name: last_name
-                  type: varchar(50)
+                  type: varchar
               - column:
                   name: email
-                  type: varchar(75)
+                  type: varchar
                   constraints:
                     nullable: false
               - column:
@@ -29,6 +29,9 @@ databaseChangeLog:
                   type: varchar
                   constraints:
                     nullable: false
+              - column:
+                  name: phone
+                  type: varchar
               - column:
                   name: role
                   type: varchar

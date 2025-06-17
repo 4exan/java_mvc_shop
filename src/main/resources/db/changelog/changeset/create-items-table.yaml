@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-item-table
+      id: create-items-table
       author: 4exan
       changes:
         - createTable:
-            tableName: item
+            tableName: items
             columns:
               - column:
                   name: id
@@ -21,9 +21,13 @@ databaseChangeLog:
               - column:
                   name: type
                   type: varchar(50)
+                  constraints:
+                    nullable: false
               - column:
                   name: category
                   type: varchar(50)
+                  constraints:
+                    nullable: false
               - column:
                   name: name
                   type: varchar(100)
@@ -46,8 +50,6 @@ databaseChangeLog:
               - column:
                   name: sale_price
                   type: decimal
-                  constraints:
-                    nullable: false
               - column:
                   name: quantity
                   type: int
@@ -59,3 +61,9 @@ databaseChangeLog:
               - column:
                   name: is_available
                   type: bool
+              - column:
+                  name: date_created
+                  type: timestamp
+              - column:
+                  name: date_edited
+                  type: timestamp
